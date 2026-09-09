@@ -13,7 +13,7 @@ class MeuApp extends StatelessWidget {
       title:'agendamento de Evento',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 0, 238, 255)),
         useMaterial3: true,
       ),
 
@@ -52,9 +52,10 @@ class AgendamentoEventoTela extends StatefulWidget{
 
     static const List<String> _tagsDisponiveis = [
       'Vegetariano',
-      'Sem Gluten',
+      'Sem Glúten',
       'Sem Lactose',
       'Vegano',
+      'Diabetes',
     ];
 
     static const List<String> _tagsPadrao = [];
@@ -308,7 +309,7 @@ class AgendamentoEventoTela extends StatefulWidget{
               const Divider(height: 32),
 
 
-              // --- 7. Chip ---
+              // --- 7. Chip (FilterChip) ---
                Text(
                 'Restrições alimantares (Tags)',
                 style: Theme.of(context).textTheme.titleMedium,
@@ -339,7 +340,7 @@ class AgendamentoEventoTela extends StatefulWidget{
               // ---- 8. Switch ---
 
               SwitchListTile(
-                title: const Text('enviar Lembrete Autmático'),
+                title: const Text('Enviar Lembrete Autmático'),
                 subtitle: const Text(
                   'Notificar convidados 24 horas antes do evento',
                 ),
@@ -352,8 +353,9 @@ class AgendamentoEventoTela extends StatefulWidget{
                   );
                 },
                 ),
-                 const Divider(height: 32),
+                 const Divider(height: 24),
 
+                // --- Botões de Ação Final (Cancelar e Salvar) ---
 
                 Row(
                   children: [
@@ -379,8 +381,8 @@ class AgendamentoEventoTela extends StatefulWidget{
                       ),
                     ),
                   ],
-                )
-
+                ),
+                const SizedBox(height: 16),
             ],
           )
         )
